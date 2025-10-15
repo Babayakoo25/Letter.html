@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Love Letter 💌</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* Mandhari ya giza yenye 'gradient' wa kimapenzi */
+    background: radial-gradient(circle at center, #2e0000 0%, #1a0000 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+  }
+
+  /* Glass Morphism Styling kwa ajili ya Kadi ya Barua */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15); /* Rangi ya wazi (transparent) */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px); /* Athari ya glass morphism */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 30px;
+    width: 90%;
+    max-width: 550px; 
+    transition: all 0.5s ease-in-out;
+  }
+
+  h1 {
+    font-size: 2.5em; 
+    margin-bottom: 30px;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.9); 
+  }
+
+  .open-btn {
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.25em; 
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 20px #ff0000;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .open-btn:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 35px #ff0000;
+    transform: scale(1.05); 
+  }
+
+  #letter {
+    display: none;
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.8;
+    animation: fadeIn 2s ease-in-out;
+    white-space: pre-wrap; 
+  }
+
+  /* Fonti ya Mwandiko (Handwriting) kwa Jina - BORA */
+  .signature-area {
+    margin-top: 35px; 
+    padding-top: 18px; 
+    border-top: 2px solid rgba(255, 100, 100, 0.4); 
+    display: block;
+    text-align: center;
+  }
+  
+  .signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.0em; 
+    font-weight: 700; 
+    display: inline-block;
+    color: #ffb3b3; 
+    text-shadow: 0 0 8px rgba(255, 150, 150, 0.8); 
+    line-height: 1;
+    letter-spacing: 2px; 
+  }
+  
+  /* Styling maalum kwa Jina la Mpokeaji (Ester) ndani ya Barua */
+  .recipient-name {
+    font-weight: 700;
+    color: #ff6666; /* Rangi nyekundu iliyokoza kidogo */
+    font-family: 'Dancing Script', cursive; /* Tumia fonti ya mwandiko hapa pia kwa msisitizo */
+    font-size: 1.2em;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    color: #ff0000;
+    font-size: 24px; 
+    animation: float 10s linear infinite;
+    z-index: -1; 
+    text-shadow: 0 0 5px #ff0000;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  /* --- Mobile Responsiveness Enhancements (max-width: 600px) --- */
+  @media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Punguza saizi ya fonti ya msingi */
+    }
+    
+    h1 {
+      font-size: 1.8em; /* Kichwa kidogo zaidi */
+      margin-bottom: 20px;
+    }
+    
+    .glass-card {
+      padding: 20px; /* Punguza padding kwenye kadi */
+      width: 95%; /* Tumia upana zaidi wa skrini */
+    }
+    
+    .open-btn {
+      padding: 12px 30px; /* Punguza ukubwa wa button */
+      font-size: 1em;
+    }
+    
+    #letter {
+      font-size: 1em; /* Punguza ukubwa wa maandishi ya barua */
+      line-height: 1.6;
+    }
+    
+    .signature-area {
+        margin-top: 25px;
+        padding-top: 10px;
+    }
+
+    .signature {
+      font-size: 2.2em; /* Punguza ukubwa wa saini kidogo */
+    }
+    
+    .recipient-name {
+      font-size: 1.1em;
+    }
+
+    .heart {
+      font-size: 18px; /* Punguza ukubwa wa moyo */
+      animation-duration: 8s !important; /* Fanya iwe polepole kidogo */
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="d-flex flex-column align-items-center text-center">
+    <h1>💌 My Deep Love 💌</h1>
+    <button class="open-btn mb-4" onclick="openLetter()">Open My Letter</button>
+
+    <div class="glass-card" id="letter-container">
+        <div id="letter"></div>
+    </div>
+</div>
+
+<audio id="bgMusic" src="romantic_violin.mp3"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+  // Saini imerudi kuwa Honest
+  const signatureHTML = `
+<div class="signature-area">
+    <span class="signature">Honest 💋</span>
+</div>
+`;
+
+  const letterText = `
+Dear <span class="recipient-name">Ester</span> ❤️,
+
+Every moment I think of you, my world feels complete.
+Your smile lights my darkest nights,
+and your voice gives rhythm to my heartbeat.
+
+You are the calm in my storms,
+the fire that warms my soul,
+and the dream I never want to wake from.
+
+I may not hold you every second,
+but you live in every beat of my heart.
+
+Forever yours,
+`; // Saini ya Honest itaongezwa hapa chini.
+
+  function openLetter() {
+    document.querySelector('.open-btn').style.display = 'none';
+    const letterContainer = document.getElementById('letter-container');
+    const letterDiv = document.getElementById('letter');
+
+    // Display container and add fadeIn class
+    letterContainer.style.display = 'block';
+    letterDiv.style.display = 'block';
+    
+    playMusicOnce();
+    typeWriter(letterText, letterDiv, 0);
+    createHearts();
+  }
+
+  function playMusicOnce() {
+    const music = document.getElementById('bgMusic');
+    music.muted = true;
+    music.play().then(() => {
+        music.muted = false;
+    }).catch(error => {
+        console.log("Kushindwa kucheza muziki: ", error);
+    });
+  }
+
+  function typeWriter(text, element, index) {
+    if (index < text.length) {
+      // Angalia kama kuna tagi ya mpokeaji na iruke, kisha iandike yote mara moja
+      const recipientTag = '<span class="recipient-name">Ester</span>';
+      if (text.substring(index, index + recipientTag.length) === recipientTag) {
+          element.innerHTML += recipientTag;
+          index += recipientTag.length;
+      } else {
+          element.innerHTML += text.charAt(index);
+          index++;
+      }
+      setTimeout(() => typeWriter(text, element, index), 45); 
+    } else {
+        // Barua imemalizika. Ongeza saini sasa.
+        element.innerHTML += signatureHTML;
+
+        // Boresha hapa: Fanya saini iingie kwa athari ya "typewriter" au "fade-in"
+        const signatureElement = element.querySelector('.signature');
+        if (signatureElement) {
+            signatureElement.style.opacity = 0;
+            setTimeout(() => {
+                signatureElement.style.transition = 'opacity 1.5s ease-in-out';
+                signatureElement.style.opacity = 1;
+            }, 50); 
+        }
+    }
+  }
+
+  function createHearts() {
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (7 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000); 
+    }, 400); 
+  }
+</script>
+
+</body>
+</html>
